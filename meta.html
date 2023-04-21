@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    
+    <meta charset="UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=8; IE=EDGE">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <style type="text/css">
+      body {
+        /* height: 100%; */
+        font-family: Helvetica, Arial, sans-serif;
+        color: #6a6a6a;
+        margin: 0;
+        display:flex;
+        
+        justify-content: center;
+      }
+      input[type=date], input[type=email], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], select, textarea {
+        color: #262626;
+        vertical-align: baseline;
+        margin: .2em;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #a9a9a9;
+        background-color: #fff;
+        box-sizing: border-box;
+        padding: 2px .5em;
+        appearance: none;
+        border-radius: 0;
+      }
+      input:focus {
+        border-color: #646464;
+        box-shadow: 0 0 1px 0 #a2a2a2;
+        outline: 0;
+      }
+      button {
+        padding: .5em 1em;
+        border: 1px solid;
+        border-radius: 3px;
+        min-width: 6em;
+        font-weight: 400;
+        font-size: .8em;
+        cursor: pointer;
+      }
+      button.primary {
+        color: #fff;
+        background-color: rgb(47, 113, 178);
+        border-color: rgb(34, 103, 173);
+        border-radius: 20px;
+        width: 150px;
+      }
+      .message-container {
+        height: aut;
+        width: auto;
+        padding: 10px;
+        margin: 10px;
+      }
+      .logo {
+        /* background: url(%%IMAGE:Logo%%) no-repeat left center; */
+        background: url("meta logo1.jpg");
+        height: 250px;
+        object-fit: contain;
+      }
+      table {
+        background-color: #fff;
+        border-spacing: 0;
+        margin: 1em;
+      }
+      table > tbody > tr > td:first-of-type:not([colspan]) {
+        white-space: nowrap;
+        color: rgba(0,0,0,.5);
+      }
+      table > tbody > tr > td:first-of-type {
+        vertical-align: top;
+      }
+      table > tbody > tr > td {
+        padding: .3em .3em;
+      }
+      .field {
+        display: table-row;
+      }
+      .field > :first-child {
+        display: table-cell;
+        width: 20%;
+      }
+      .field.single > :first-child {
+        display: inline;
+      }
+      .field > :not(:first-child) {
+        width: auto;
+        max-width: 100%;
+        display: inline-flex;
+        align-items: baseline;
+        virtical-align: top;
+        box-sizing: border-box;
+        margin: .3em;
+      }
+      .field > :not(:first-child) > input {
+        width: 230px;
+      }
+      .form-footer {
+        display: inline-flex;
+        justify-content: flex-start;
+      }
+      /* .form-footer > * {
+        display: absolute;
+        top: 50px;
+        left: 50%;
+      } */
+      .text-scrollable {
+        overflow: auto;
+        height: 150px;
+        border: 1px solid rgb(200, 200, 200);
+        padding: 5px;
+        font-size: 1em;
+      }
+      .text-centered {
+        text-align: center;
+      }
+      .text-container {
+        margin: 1em 1.5em;
+      }
+      .flex-container {
+        display: flex;
+      }
+      .flex-container.column {
+        flex-direction: column;
+      }
+
+        .username{
+        position: relative;
+        text-align: center;
+        width: 300px;
+        height: 50px;
+      }
+
+      #test {
+
+        border-style:groove; 
+        border-radius: 20px;     
+        box-shadow: 2px 2px 20px #262626; 
+        position: relative;
+        width: 500px; 
+        height: 640px;
+        position: absolute;
+        top: 15%;
+        left: center;
+
+        /* align-content: center; */
+      }
+
+      h1{
+        position: relative;
+        text-align: center;
+      }
+        
+    </style>
+    
+    <title>
+      ავტორიზაცია 
+    </title>
+    
+  </head>
+  
+  <body style="background-color:#9ad5db;">
+    
+    <div class="message-container" id="test"  >
+      
+      <div class="logo">
+        
+      </div>
+      
+      <h1>
+        საჭიროა ავტორიზაცია 
+      </h1>
+      
+      <form action="%%AUTH_POST_URL%%" method="post">
+        
+        <input type="hidden" name="%%REDIRID%%" value="%%PROTURI%%">
+        
+        <input type="hidden" name="%%MAGICID%%" value="%%MAGICVAL%%">
+        
+        <input type="hidden" name="%%METHODID%%" value="%%METHODVAL%%">
+        
+        <!--
+<p>
+%%QUESTION%% 
+</p>
+-->
+        
+        <div class="field">
+
+          
+          <div style="text-align: center;">
+            <p>
+                <input name="%%USERNAMEID%%" id="ft_un" type="text" autocorrect="off"   autocapitalize="off" placeholder="მომხმარებელი " style="border-radius: 20px;"     class="username">
+            </p>
+          </div>
+          
+        </div>
+        
+        <div class="field">
+          
+          <div style="text-align: center;">
+            <p>
+                <input name="%%PASSWORDID%%" id="ft_pd" type="password" autocomplete="off" placeholder="პაროლი" style="border-radius: 20px;" class="username">
+            </p>
+          </div>
+          
+        </div>
+        
+        <div style="text-align: center;">
+          <p>
+                <button type="reset" style="background-color: rgb(173, 54, 54); border-radius: 20px; color: aliceblue; border: none;">
+                    წაშლა
+                </button>
+                <button class="primary button_style" type="submit">
+                ავტორიზაცია 
+                </button>
+        </p>
+          
+        </div>
+        
+      </form>
+      <!--  -->
+    </div>
+    
+  </body>
+</html>
